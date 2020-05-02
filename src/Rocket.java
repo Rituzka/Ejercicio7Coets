@@ -1,11 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Rocket {
 
 	private String code;
 	private int numThrusters;
-	private int[] maxPower;
+	private List<Integer> maxPower = new ArrayList<Integer>();
 
-	public Rocket(String code, int numThrusters, int[] maxPower) {
+	public Rocket(String code, int numThrusters, List<Integer> maxPower) {
 
 		this.code = code;
 		this.numThrusters = numThrusters;
@@ -28,21 +30,23 @@ public class Rocket {
 		this.numThrusters = numThrusters;
 	}
 
-	public int[] getMaxPower() {
+
+	public List<Integer> getMaxPower() {
 		return maxPower;
 	}
 
-	public void setMaxPower(int[] maxPower) {
+	public void setMaxPower(List<Integer> maxPower) {
 		this.maxPower = maxPower;
 	}
+	
 
-	public String printMaxPowerThrusters(int[] array) {
-		maxPower = array;
+	public String printMaxPowerThrusters(List<Integer> listMaxPower) {
+		maxPower = listMaxPower;
 		StringBuilder sb = new StringBuilder();
 
-		for (int i = 0; i < array.length; i++) {
-			sb.append(String.valueOf(array[i]));
-			if (i < array.length - 1)
+		for (int i = 0; i < listMaxPower.size(); i++) {
+			sb.append(String.valueOf(listMaxPower.get(i)));
+			if (i < listMaxPower.size() - 1)
 				sb.append(", ");
 		}
 
