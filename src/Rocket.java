@@ -30,7 +30,6 @@ public class Rocket {
 		this.numThrusters = numThrusters;
 	}
 
-
 	public List<Integer> getMaxPower() {
 		return maxPower;
 	}
@@ -38,7 +37,6 @@ public class Rocket {
 	public void setMaxPower(List<Integer> maxPower) {
 		this.maxPower = maxPower;
 	}
-	
 
 	public String printMaxPowerThrusters(List<Integer> listMaxPower) {
 		maxPower = listMaxPower;
@@ -51,6 +49,14 @@ public class Rocket {
 		}
 
 		return sb.toString();
+	}
+	
+	public void accelerating() {
+		
+	}
+	
+	public void braking() {
+		
 	}
 
 }

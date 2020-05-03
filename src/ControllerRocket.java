@@ -6,12 +6,12 @@ public class ControllerRocket {
 	public static void main(String[] args) {
 
 		List<Rocket> listRockets = new ArrayList<Rocket>();
+
 		List<Integer> maxPowerRocket1 = new ArrayList<Integer>();
-		
 		maxPowerRocket1.add(10);
 		maxPowerRocket1.add(30);
 		maxPowerRocket1.add(80);
-		
+
 		List<Integer> maxPowerRocket2 = new ArrayList<Integer>();
 		maxPowerRocket2.add(30);
 		maxPowerRocket2.add(40);
@@ -33,7 +33,6 @@ public class ControllerRocket {
 					+ " / Nro de propulsores: " + listRockets.get(i).getNumThrusters());
 
 		}
-
 
 		// FASE 2
 		System.out.println("\n" + "------FASE 2 ----------" + "\n");
