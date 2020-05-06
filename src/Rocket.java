@@ -6,6 +6,7 @@ public class Rocket {
 	private String code;
 	private int numThrusters;
 	private List<Integer> maxPower = new ArrayList<Integer>();
+	int numThruster = 1;
 
 	public Rocket(String code, int numThrusters, List<Integer> maxPower) {
 
@@ -50,13 +51,34 @@ public class Rocket {
 
 		return sb.toString();
 	}
-	
-	public void accelerating() {
-		
+
+	public void accelerating(List<Integer> maxPower) {
+		this.maxPower = maxPower;
+
+		for (int i = 1; i < maxPower.size(); i++) {
+			numThruster = i;
+			System.out.println("Starting acceleration thruster " + i);
+
+			for (int j = 0; j < maxPower.get(i); j++) {
+				System.out.print(j + " - ");
+				if (j == maxPower.get(i) - 1) {
+					braking(j);
+				}
+			}
+
+		}
+
 	}
-	
-	public void braking() {
-		
+
+	public void braking(int maximum) {
+
+		System.out.println("Thruster at maximum capacity" + "\n");
+		System.out.println("Deceleration process started");
+
+		for (int i = maximum; i > 0; i--) {
+			System.out.print(i + " - ");
+
+		}
 	}
 
 }
