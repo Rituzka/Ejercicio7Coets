@@ -52,33 +52,35 @@ public class Rocket {
 		return sb.toString();
 	}
 
-	public void accelerating(List<Integer> maxPower) {
-		this.maxPower = maxPower;
+	public synchronized void accelerating(List<Integer> maxPower) {
 
-		for (int i = 1; i < maxPower.size(); i++) {
-			numThruster = i;
-			System.out.println("Starting acceleration thruster " + i);
-
-			for (int j = 0; j < maxPower.get(i); j++) {
+		for (int i = 0; i < maxPower.size(); i++) {
+			System.out.println("Acceleration Thruster " + (i + 1) + " starts");
+			for (int j = 1; j < maxPower.get(i); j++) {
 				System.out.print(j + " - ");
 				if (j == maxPower.get(i) - 1) {
-					braking(j);
-				}
-			}
 
+					braking(j, numThruster);
+
+				}
+
+				numThruster = i + 1;
+			}
 		}
 
 	}
 
-	public void braking(int maximum) {
+	public void braking(int maximum, int numThruster) {
 
-		System.out.println("Thruster at maximum capacity" + "\n");
-		System.out.println("Deceleration process started");
+		System.out.println("Thruster " + numThruster + " at maximum capacity");
+		System.out.println("Deceleration thruster " + numThruster);
 
 		for (int i = maximum; i > 0; i--) {
 			System.out.print(i + " - ");
 
 		}
+		System.out.println("");
+		
 	}
 
 }

@@ -1,35 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
 
-public class InitiateThruster implements Runnable {
-	
-	Thread hilo;
-	int maxPower;
-	Rocket rocket;
+public class InitiateThruster extends Thread {
 
-	
-	
-	public InitiateThruster(String name,Rocket rocket, int maxPower){
+Rocket rocket;
+int maxPower;
 
-		hilo = new Thread(this, name);
-		this.maxPower = maxPower;
-		this.rocket = rocket;
-		
-	}
-	//method for creating threads
-	public static InitiateThruster createThread(String name,Rocket rocket,  int maxPower) {
-		
-		
-		InitiateThruster thread1 = new InitiateThruster(name, rocket, maxPower);
-		thread1.hilo.start();
-		return thread1;
-	}
-	;
+public InitiateThruster(Rocket rocket, int maxPower) {
+	this.rocket = rocket;
+	this.maxPower = maxPower;
+}
+
 	@Override
 	public void run() {
-		
-		System.out.println("Thruster: "+hilo.getName()+" Initiate acceleration");
-			rocket.accelerating(rocket.getMaxPower());
-			
-			
-	}	
+
+		rocket.accelerating(rocket.getMaxPower());
+
+	}
 
 }

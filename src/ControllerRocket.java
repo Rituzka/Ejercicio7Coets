@@ -48,10 +48,13 @@ public class ControllerRocket {
 		System.out.println("\n" + "------FASE 3 ----------" + "\n");
 		
 			//Creación de hilos del cohete 1. 3 hilos para 3 propulsores
-			InitiateThruster.createThread("1 de Rocket1", rocket1, rocket1.getMaxPower().get(0));
-			InitiateThruster.createThread("2 de Rocket1", rocket1, rocket1.getMaxPower().get(1));
-			InitiateThruster.createThread("2 de Rocket1", rocket1, rocket1.getMaxPower().get(2));
+			InitiateThruster t1 = new InitiateThruster(rocket1,rocket1.getMaxPower().get(0));
+			InitiateThruster t2 = new InitiateThruster(rocket1,rocket1.getMaxPower().get(1));
+			InitiateThruster t3 = new InitiateThruster(rocket1,rocket1.getMaxPower().get(2));
 			
+			t1.start();
+			t2.start();
+			t3.start();
 			
 	}
 
